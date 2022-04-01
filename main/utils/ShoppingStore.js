@@ -1,9 +1,14 @@
 import create from 'zustand'
 import { persist } from 'zustand/middleware' 
 
-const useStore = create(persist(
+const useShoppingStore = create(
+    // persist(
     (set, get) => ({
-        shoppingCart: [],
+        shoppingCart: [{
+            index: 1,
+            name: 'Item 1',
+            price: 10
+        }],
         addToShoppingCart: (item) => {
             set(state => ({
                 shoppingCart: [...state.shoppingCart, item]
@@ -22,4 +27,7 @@ const useStore = create(persist(
     }), {
         name: 'shoppingCart'
     }
-))
+)
+// )
+
+export default useShoppingStore

@@ -1,6 +1,6 @@
-const FullHeightPage = () => (
+const FullHeightPage = ({ children }) => (
     <div>
-      Hello World!
+      {children}
       <style global jsx>{`
         html,
         body,
