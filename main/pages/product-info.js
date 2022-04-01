@@ -3,6 +3,7 @@ import { Container, Button, Carousel } from "react-bootstrap"
 import Image from 'next/image'
 
 import FullHeightPage from "../components/FullHeightPage"
+import ProductTag from "../components/ProductTag"
 
 import styles from "../styles/product-info.module.css"
 
@@ -12,7 +13,7 @@ const ProductInfo = (productIndex) => {
         description: "description",
         price: 0,
         images: [""],
-        tags: [""]
+        tags: ["men", "leisure", "shirt"]
     });
     
     return (
@@ -34,6 +35,11 @@ const ProductInfo = (productIndex) => {
                     <span className={styles.productName}>{product.name}</span>
                     <span className={styles.productPrice}>${product.price}</span>
                     <p className={styles.productDescription}>{product.description}</p>
+                    <div className={styles.productTags}>
+                        { product.tags.map((tag, index) => (
+                            <ProductTag key={index} tag={tag} />
+                        ))}
+                    </div>
                 </Container>
             </Container>
         </FullHeightPage>
