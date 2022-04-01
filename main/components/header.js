@@ -6,14 +6,18 @@ import styles from "../styles/header.module.css";
 
 const Header = () => {
     return (
-        <Navbar className={styles.navbar}>
+        <Navbar
+            className={styles.navbar}
+            collapseOnSelect
+            expand="lg"
+        >
             <Container className={styles.navbarContainer}>
                 <Navbar.Brand href="/">
                     Brand
                 </Navbar.Brand>
-                <Navbar.Toggle />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse>
-                    <Nav>
+                    <Nav className="justify-content-end">
                         <Nav.Link href="/men">Men</Nav.Link>
                         <Nav.Link href="/women">Women</Nav.Link>
                         <Nav.Link href="/kids">Kids</Nav.Link>
