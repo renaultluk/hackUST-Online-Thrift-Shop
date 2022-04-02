@@ -3,10 +3,19 @@
 }
 
 .navbarContainer {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
+    /* display: flex; */
+    /* flex-direction: row; */
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    width: 100%;
+    height: 100%;
 }
