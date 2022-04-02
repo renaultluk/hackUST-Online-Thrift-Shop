@@ -17,3 +17,8 @@
 .productName {
     font-weight: bold;
 }
+
+.scrollContainer {
+    display: flex;
+    overflow-y: scroll;
+}
