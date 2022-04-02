@@ -13,4 +13,4 @@ const FullHeightPage = ({ children }) => (
     </div>
   )
 
-  export default FullHeightPage
+export default FullHeightPage

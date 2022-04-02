@@ -1,0 +1,17 @@
+.productInfoColumn {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.productName {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.productPrice {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: blue;
+}
