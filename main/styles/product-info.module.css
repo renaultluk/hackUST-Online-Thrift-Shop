@@ -1,3 +1,8 @@
+.carousel {
+    width: 500px;
+    height: 500px;
+}
+
 .productInfoColumn {
     display: flex;
     flex-direction: column;

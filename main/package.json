@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
+    "firebase": "^9.6.10",
     "next": "12.1.2",
     "react": "18.0.0",
     "react-bootstrap": "^2.2.2",

@@ -9,28 +9,30 @@ import styles from "../styles/product-info.module.css"
 
 const ProductInfo = (productIndex) => {
     const [product, setProduct] = useState({
-        name: "name",
-        description: "description",
-        price: 0,
-        images: [""],
-        tags: ["men", "leisure", "shirt"]
+        name: "Classic Button-up Shirt",
+        description: "Size: M, Condition: New",
+        price: 1000,
+        images: ["https://cdn-images.farfetch-contents.com/17/68/34/51/17683451_37032165_1000.jpg", "https://cdn-images.farfetch-contents.com/17/68/34/51/17683451_37032163_1000.jpg"],
+        tags: ["men", "formal", "shirt"]
     });
     
     return (
         <FullHeightPage>
             <Container>
-                {/* <Carousel>
+                <Carousel className={styles.carousel}>
                     {
                         product.images.map((image, index) => (
                             <Carousel.Item key={index}>
                                 <Image
                                     src={image}
-                                    layout="fill"
+                                    // layout="fill"
+                                    width={500}
+                                    height={500}
                                 />
                             </Carousel.Item>
                         )
                     )}
-                </Carousel> */}
+                </Carousel>
                 <Container className={styles.productInfoColumn}>
                     <span className={styles.productName}>{product.name}</span>
                     <span className={styles.productPrice}>${product.price}</span>

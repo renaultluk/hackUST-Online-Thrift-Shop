@@ -1,0 +1,19 @@
+.productBrief {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: fit-content;
+}
+
+/* .productImage {
+    width: 200px;
+    height: 200px;
+} */
+
+.productName {
+    font-weight: bold;
+}
