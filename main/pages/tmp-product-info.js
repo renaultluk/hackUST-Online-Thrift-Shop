@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Container, Button, Carousel } from "react-bootstrap"
 import Image from 'next/image'
+import { IoMdAdd } from "react-icons/io";
 
 import FullHeightPage from "../components/FullHeightPage"
 import ProductTag from "../components/ProductTag"
@@ -18,7 +19,7 @@ const ProductInfo = (productIndex) => {
     
     return (
         <FullHeightPage>
-            <Container>
+            <Container className={styles.pageContainer}>
                 <Carousel className={styles.carousel}>
                     {
                         product.images.map((image, index) => (
@@ -42,6 +43,10 @@ const ProductInfo = (productIndex) => {
                             <ProductTag key={index} tag={tag} />
                         ))}
                     </div>
+                    <Button>
+                        <IoMdAdd />
+                        Add to Cart
+                    </Button>
                 </Container>
             </Container>
         </FullHeightPage>
