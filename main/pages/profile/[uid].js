@@ -3,12 +3,13 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useAuth } from "../../utils/AuthContext";
 import { firestore } from '../../utils/firebase';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
  
 
 const UserProfile = () => {
 
-    const [ userData, setUserData ] = useState(null)
+    const [ userData, setUserData ] = useState(null);
+    const [ ordersData, setOrdersData ] = useState (null);
 
     const { loadingUser, currentUser, logout } = useAuth();
     const router = useRouter();
@@ -20,8 +21,21 @@ const UserProfile = () => {
         if (docSnap.exists()) {
             setUserData(docSnap.data());
           } else {
-            setUserData(null)
+            setUserData(null);
         }
+    }
+
+    const getUserPurchases = async () => {
+        const ordersRef = collection(firestore, 'orders');
+        const q = query(ordersRef, where("userId", "==", userData.uid));
+
+        const querySnapshot = await getDocs(q);
+        let fetchedOrders = [];
+
+        querySnapshot.forEach(doc=>{
+            fetchedOrders.push(doc.data());
+        })
+        setOrdersData(fetchedOrders);
     }
 
     useEffect(() => {
@@ -32,6 +46,12 @@ const UserProfile = () => {
         }
     }, [currentUser])
 
+    useEffect( ()=>{
+        if (userData){
+            getUserPurchases();
+        }
+    }, [userData])
+
 
     return (
         <> { userData &&
@@ -40,6 +60,8 @@ const UserProfile = () => {
                 <div>Name: {userData?.displayName} </div>
                 <div>Email: {userData?.email} </div>
                 <div>Ecopoints: {userData?.ecopoints ?? 0} </div>
+                <div>Recent Orders:{JSON.stringify(ordersData)}
+                </div>
             </div>
             }
         </>
