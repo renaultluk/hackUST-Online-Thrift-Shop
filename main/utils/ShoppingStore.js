@@ -5,9 +5,8 @@ const useShoppingStore = create(
     // persist(
     (set, get) => ({
         shoppingCart: [{
-            index: 1,
-            name: 'Item 1',
-            price: 10
+            index: 'A31a2S96SjUpjakaIeOD',
+            category: 'men'
         }],
         addToShoppingCart: (item) => {
             set(state => ({
