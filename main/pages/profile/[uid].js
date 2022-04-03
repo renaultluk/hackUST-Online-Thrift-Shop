@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { useAuth } from "../../src/contexts/AuthContext";
-import { db } from '../../src/firebase';
+import { useAuth } from "../../utils/AuthContext";
+import { firestore } from '../../utils/firebase';
 import { doc, getDoc } from "firebase/firestore";
  
 
@@ -15,7 +15,7 @@ const UserProfile = () => {
     const { uid } = router.query
 
     const getUserData = async () => {
-        const docRef = doc(db, "users", uid);
+        const docRef = doc(firestore, "users", uid);
         const docSnap = await getDoc(docRef)
         if (docSnap.exists()) {
             setUserData(docSnap.data());

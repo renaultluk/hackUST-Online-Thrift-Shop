@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from '../firebase';
-import { db } from '../../src/firebase';
+import { auth } from './firebase';
+import { firestore } from './firebase';
 import { doc, setDoc } from "firebase/firestore"; 
  
 
@@ -33,7 +33,7 @@ export default function AuthProvider({ children }) {
                 console.log({ credential, token, user });
 
                 // Add/update user collection
-                const userRef = doc(db, 'users', user.uid);
+                const userRef = doc(firestore, 'users', user.uid);
                 setDoc(userRef, 
                     {
                         displayName: user.displayName,

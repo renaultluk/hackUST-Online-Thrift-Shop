@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { useAuth } from "../../src/contexts/AuthContext";
+import { useAuth } from "../../utils/AuthContext";
 
 export default function Profile() {
 

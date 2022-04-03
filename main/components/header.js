@@ -4,16 +4,17 @@ import { useRouter } from "next/router";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaUser, FaHeart, FaShoppingBag } from "react-icons/fa";
 
-import useForceUpdate from "../utils/useForceUpdate";
+// import useForceUpdate from "../utils/useForceUpdate";
 import styles from "../styles/header.module.css";
 
 const Header = () => {
     const router = useRouter();
+    // const { loadingUser, currentUser, logout } = useAuth();
 
     return (
         <Navbar
             className={styles.navbar}
-            collapseOnSelect
+            collapseOnSelect={true}
             expand="lg"
             bg="secondary"
             variant="dark"
@@ -67,7 +68,12 @@ const Header = () => {
                     <Nav.Link href="/donation">Donation</Nav.Link>
                     <Nav.Link href="/contact">Contact Us</Nav.Link>
                     <ButtonGroup className={styles.buttonGroup}>
-                        <Button variant="secondary">
+                        <Button
+                            variant="secondary"
+                            onClick={() => {
+                                router.push("/profile");
+                            }}
+                        >
                             <FaUser />
                         </Button>
                         <Button variant="secondary">

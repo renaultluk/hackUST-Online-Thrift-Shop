@@ -5,7 +5,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["firebasestorage.googleapis.com", "cdn-images.farfetch-contents.com", "bigmapapparel.com"],
+    domains: ["firebasestorage.googleapis.com", "cdn-images.farfetch-contents.com", "bigmapapparel.com", "lh3.googleusercontent.com"],
   }
 }
 
