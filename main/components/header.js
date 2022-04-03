@@ -73,7 +73,14 @@ const Header = () => {
                         <Button variant="secondary">
                             <FaHeart />
                         </Button>
-                        <Button variant="secondary">
+                        <Button
+                            variant="secondary"
+                            onClick={() => {
+                                router.push({
+                                    pathname: "/shopping-cart"
+                                });
+                            }}
+                        >
                             <FaShoppingBag />
                         </Button>
                     </ButtonGroup>
