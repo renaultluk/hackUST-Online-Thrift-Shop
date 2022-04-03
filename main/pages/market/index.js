@@ -8,6 +8,8 @@ import { useRouter } from "next/router";
 import { collection, query, startAfter, limit, getDocs, doc, where, orderBy } from "firebase/firestore"; 
 import { firestore, productsRef } from "../../utils/firebase";
 
+import useForceUpdate from "../../utils/useForceUpdate";
+
 import FullHeightPage from "../../components/FullHeightPage";
 
 import styles from "../../styles/market.module.css";
@@ -31,11 +33,10 @@ import styles from "../../styles/market.module.css";
 //     );
 // }
 
-
 const Market = (props) => {
     const router = useRouter();
     const queryParams = router.query;
-    const category = queryParams.category ? queryParams.category : "men"; // TODO: Revise for general
+    const category = queryParams.category; // TODO: Revise for general
 
     const [items, setItems] = useState([{
         id: 1,

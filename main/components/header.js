@@ -4,11 +4,12 @@ import { useRouter } from "next/router";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaUser, FaHeart, FaShoppingBag } from "react-icons/fa";
 
+import useForceUpdate from "../utils/useForceUpdate";
 import styles from "../styles/header.module.css";
 
 const Header = () => {
     const router = useRouter();
-    
+
     return (
         <Navbar
             className={styles.navbar}
@@ -26,36 +27,39 @@ const Header = () => {
                 <Navbar.Collapse>
                     <Nav.Link
                         onClick={() => {
-                            router.push({
-                                pathname: "/market",
-                                query: {
-                                    category: "women"
-                                }
-                            })
+                            // router.push({
+                            //     pathname: "/market",
+                            //     query: {
+                            //         category: "women"
+                            //     },
+                            // });
+                            window.location = "/market?category=women"
                         }}
                     >
                         Women
                     </Nav.Link>
                     <Nav.Link
                         onClick={() => {
-                            router.push({
-                                pathname: "/market",
-                                query: {
-                                    category: "men"
-                                }
-                            })
+                            // router.push({
+                            //     pathname: "/market",
+                            //     query: {
+                            //         category: "men"
+                            //     }
+                            // });
+                            window.location = "/market?category=men"
                         }}
                     >
                         Men
                     </Nav.Link>
                     <Nav.Link
                         onClick={() => {
-                            router.push({
-                                pathname: "/market",
-                                query: {
-                                    category: "kids"
-                                }
-                            })
+                            // router.push({
+                            //     pathname: "/market",
+                            //     query: {
+                            //         category: "kids"
+                            //     }
+                            // });
+                            window.location = "/market?category=kids"
                         }}
                     >
                         Kids

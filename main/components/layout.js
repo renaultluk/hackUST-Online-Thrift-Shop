@@ -1,5 +1,6 @@
 import Header from "./header"
 import Container from "react-bootstrap/Container"
+import { withRouter } from "next/router";
 
 const Layout = ({ children }) => {
     return (
@@ -12,4 +13,4 @@ const Layout = ({ children }) => {
     )
 }
 
-export default Layout;
+export default withRouter(Layout);
