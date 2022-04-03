@@ -1,6 +1,19 @@
 import Button from "react-bootstrap/Button";
+import { useRouter } from "next/router";
 
-const ProductTag = ({ tag }) => {
+const ProductTag = (props) => {
+    const router = useRouter();
+
+    const searchTag = () => {
+        router.push({
+            pathname: "/market",
+            query: {
+                category: props.category,
+                tags: props.tag,
+            },
+        });
+    }
+    
     return (
         <>
            <style type="text/css">
@@ -16,11 +29,12 @@ const ProductTag = ({ tag }) => {
             <Button
                 className="product-tag"
                 variant="tag"
+                onClick={searchTag}
             >
-            {tag}
+            {props.tag}
             </Button>
         </>
-  );
+    );
 }
 
 export default ProductTag;

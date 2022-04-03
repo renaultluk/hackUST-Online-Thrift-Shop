@@ -84,7 +84,7 @@ const ProductInfo = () => {
                             <p className={styles.productDescription}>{product.description}</p>
                             <div className={styles.productTags}>
                                 { product.tags.map((tag, index) => (
-                                    <ProductTag key={index} tag={tag} />
+                                    <ProductTag key={index} tag={tag} category={category} />
                                 ))}
                             </div>
                             <Button onClick={addToCart}>
