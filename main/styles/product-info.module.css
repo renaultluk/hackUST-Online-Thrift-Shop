@@ -27,3 +27,10 @@
     font-weight: bold;
     color: blue;
 }
+
+.alert {
+    position:fixed;
+    top: 50;
+    left: 25;
+    z-index: 9999;
+}

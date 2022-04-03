@@ -72,7 +72,7 @@ const Market = (props) => {
             pathname: "/market/item",
             query: {
                 category: category,
-                ind: id
+                id: id
             }
         });
     }
