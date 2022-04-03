@@ -21,7 +21,7 @@ const Header = () => {
         >
             <Container className={styles.navbarContainer}>
                 <Navbar.Brand href="/">
-                    Brand
+                    Thriftee
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse>

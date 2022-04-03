@@ -79,7 +79,7 @@ const Market = (props) => {
 
     
     return (
-        <Container>
+        <FullHeightPage>
             <Row>
                 <Col>
                     <h1>Market</h1>
@@ -94,26 +94,29 @@ const Market = (props) => {
                     </Button>
                 </Col>
             </Row>
-            <Container className={styles.scrollContainer}>
-                {items.map(item => (
-                    // <ProductBrief key={item.id} product={item} />
-                    <Card 
-                    key={item.id}    
-                    style={{
-                            width: '18rem',
-                            height: '18rem',
-                        }}
-                        onClick={() => gotoItem(item.id)}
-                    >
-                        <Card.Img variant="top" src={item.images[0]} />
-                        <Card.Body>
-                            <Card.Title>{item.name}</Card.Title>
-                            <Card.Text>${item.price}</Card.Text>
-                        </Card.Body>
-                    </Card>
-                ))}
-            </Container>
-        </Container>
+                <Container>
+                    <Row>
+                        {items.map(item => (
+                            // <ProductBrief key={item.id} product={item} />
+                            <Col key={item.id} xs={{ span: 12, order: 3 }} md={{ span: 6, order: 1 }}>
+                                <Card 
+                                style={{
+                                        width: '18rem',
+                                        height: '18rem',
+                                    }}
+                                    onClick={() => gotoItem(item.id)}
+                                >
+                                    <Card.Img variant="top" src={item.images[0]} />
+                                    <Card.Body>
+                                        <Card.Title>{item.name}</Card.Title>
+                                        <Card.Text>${item.price}</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
+        </FullHeightPage>
     )
 }
 
