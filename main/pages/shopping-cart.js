@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Button, Row, Col } from "react-bootstrap";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { firestore } from "../utils/firebase";
@@ -15,6 +16,7 @@ import generateOrderId from "../utils/utils";
 const ShoppingCart = () => {
     const shopStore = useShoppingStore();
     const { loadingUser, currentUser } = useAuth();
+    const router = useRouter();
 
     const [cart, setCart] = useState([]);
     
@@ -55,6 +57,7 @@ const ShoppingCart = () => {
 
         setCart([]);
         shopStore.clearShoppingCart();
+        router.push('/successful');
     }
 
     useEffect(() => {
