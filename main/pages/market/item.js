@@ -37,7 +37,12 @@ const ProductInfo = () => {
         }
 
         fetchData().catch(err => console.log(err));
-    }, [])
+    }, [category, id])
+
+    useEffect( () => {
+        console.log(product)
+
+    }, [product])
 
     const addToCart = () => {
         const item = {
@@ -62,7 +67,7 @@ const ProductInfo = () => {
                 </Alert> : null
             }
             <Container className={styles.pageContainer}>
-                { Object.keys(product).length ?
+                {product&& Object.keys(product).length ?
                     <>
                         <Carousel className={styles.carousel}>
                             {

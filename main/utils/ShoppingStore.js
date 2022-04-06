@@ -4,10 +4,7 @@ import { persist } from 'zustand/middleware'
 const useShoppingStore = create(
     // persist(
     (set, get) => ({
-        shoppingCart: [{
-            index: 'A31a2S96SjUpjakaIeOD',
-            category: 'men'
-        }],
+        shoppingCart: [],
         addToShoppingCart: (item) => {
             set(state => ({
                 shoppingCart: [...state.shoppingCart, item]
