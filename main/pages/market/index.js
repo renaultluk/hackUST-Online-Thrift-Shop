@@ -38,12 +38,7 @@ const Market = (props) => {
     const queryParams = router.query;
     const category = queryParams.category; // TODO: Revise for general
 
-    const [items, setItems] = useState([{
-        id: 1,
-        name: "Classic Button-up Shirt",
-        price: 1000,
-        images: ["https://cdn-images.farfetch-contents.com/17/68/34/51/17683451_37032165_1000.jpg"]
-    }]);
+    const [items, setItems] = useState([]);
     const [tags, setTags] = useState([]);
 
     useEffect(() => {
@@ -56,16 +51,19 @@ const Market = (props) => {
                 query(currentCollection, limit(10), orderBy("name"));
             
             const querySnapshot = await getDocs(q);
-            const tmpItems = querySnapshot.docs.map(doc => {
+
+            let itemResults = []
+            querySnapshot.forEach(doc=>{
                 let tmp = doc.data();
                 tmp.id = doc.id;
-                return tmp;
-            });
-            setItems(items.concat(tmpItems));
+                itemResults.push(tmp)
+            })
+
+            setItems(itemResults);
         }
 
         fetchData().catch(err => console.log(err));
-    } , []);
+    } , [category]);
     
     const gotoItem = (id) => {
         router.push({
