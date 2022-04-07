@@ -56,7 +56,7 @@ export default function AuthProvider({ children }) {
                 const email = error.email;
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
-                console.log({ errorCode, errorMessage, email, credential });
+                // console.log({ errorCode, errorMessage, email, credential });
                 setCurrentUser(null);
                 setLoadingUser(false);
             });
@@ -76,13 +76,12 @@ export default function AuthProvider({ children }) {
                 setCurrentUser(null);         
             }
             setLoadingUser(false);
-            console.log(user);
+            // console.log(user);
         });
     }, [currentUser]);
 
     useEffect(()=>{
-
-        console.log(loadingUser)
+        // console.log(loadingUser)
     }, [loadingUser])
 
 
