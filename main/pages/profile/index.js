@@ -5,7 +5,7 @@ import { useAuth } from "../../utils/AuthContext";
 
 export default function Profile() {
 
-    const { loadingUser, currentUser, logout } = useAuth();
+    const { loadingUser, currentUser } = useAuth();
 
     const router = useRouter();
 

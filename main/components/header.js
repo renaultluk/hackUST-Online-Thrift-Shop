@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, Button, ButtonGroup } from "react-bootstrap";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useAuth } from "../utils/AuthContext";
+
 import { FaUser, FaHeart, FaShoppingBag } from "react-icons/fa";
 
 // import useForceUpdate from "../utils/useForceUpdate";
@@ -9,7 +9,7 @@ import styles from "../styles/header.module.css";
 
 const Header = () => {
     const router = useRouter();
-    // const { loadingUser, currentUser, logout } = useAuth();
+    const { loadingUser, currentUser, logout } = useAuth();
 
     return (
         <Navbar
@@ -24,72 +24,74 @@ const Header = () => {
                 <Navbar.Brand href="/">
                     Thriftee
                 </Navbar.Brand>
+
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse>
-                    <Nav.Link
-                        onClick={() => {
-                            // router.push({
-                            //     pathname: "/market",
-                            //     query: {
-                            //         category: "women"
-                            //     },
-                            // });
-                            window.location = "/market?category=women"
-                        }}
-                    >
-                        Women
-                    </Nav.Link>
-                    <Nav.Link
-                        onClick={() => {
-                            // router.push({
-                            //     pathname: "/market",
-                            //     query: {
-                            //         category: "men"
-                            //     }
-                            // });
-                            window.location = "/market?category=men"
-                        }}
-                    >
-                        Men
-                    </Nav.Link>
-                    <Nav.Link
-                        onClick={() => {
-                            // router.push({
-                            //     pathname: "/market",
-                            //     query: {
-                            //         category: "kids"
-                            //     }
-                            // });
-                            window.location = "/market?category=kids"
-                        }}
-                    >
-                        Kids
-                    </Nav.Link>
-                    <Nav.Link href="/donation">Donation</Nav.Link>
-                    <Nav.Link href="/contact">Contact Us</Nav.Link>
-                    <ButtonGroup className={styles.buttonGroup}>
-                        <Button
-                            variant="secondary"
-                            onClick={() => {
-                                router.push("/profile");
-                            }}
-                        >
-                            <FaUser />
-                        </Button>
-                        <Button variant="secondary">
-                            <FaHeart />
-                        </Button>
-                        <Button
-                            variant="secondary"
-                            onClick={() => {
-                                router.push({
-                                    pathname: "/shopping-cart"
-                                });
-                            }}
-                        >
+
+                    <Nav className="me-auto">
+                        <Nav.Link href="/market?category=women" className={styles.navbarItems}>
+                            Women
+                        </Nav.Link>
+                        <Nav.Link href="/market?category=men" className={styles.navbarItems}>
+                            Men
+                        </Nav.Link>
+                        <Nav.Link href = "/market?category=kids" className={styles.navbarItems}>
+                            Kids
+                        </Nav.Link>
+                        <Nav.Link href="/donation" className={styles.navbarItems}>Donation</Nav.Link>
+                        <Nav.Link href="/contact" className={styles.navbarItems}>Contact Us</Nav.Link>
+                    </Nav>
+
+                    <Nav>
+                        <ButtonGroup className={styles.buttonGroup}>
+                            {
+                            !loadingUser && currentUser && 
+                            <Button
+                                variant="secondary"
+                                href="/profile"
+                            >
+                                <FaUser />
+                            </Button>
+                            }
+
+                            {
+                            !loadingUser && currentUser && 
+                            <Button
+                                variant="secondary"
+                            >
+                                <FaHeart />
+                            </Button>
+                            }
+
+                            <Button
+                                variant="secondary"
+                                onClick={() => {
+                                    router.push({
+                                        pathname: "/shopping-cart"
+                                    });
+                                }}
+                            >
                             <FaShoppingBag />
-                        </Button>
-                    </ButtonGroup>
+                            </Button>
+                            {
+                            (!loadingUser && currentUser) ?
+                            <Button
+                                variant="secondary"
+                                onClick={logout}
+                            >
+                             Log Out
+                            </Button>
+                            :
+                            <Button
+                                variant="secondary"
+                                href="/login"
+                            >
+                             Sign In
+                            </Button>
+                            }
+
+                        </ButtonGroup>
+                    </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

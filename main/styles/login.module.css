@@ -1,0 +1,84 @@
+.outerContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10% 0 10% 0;
+    max-width: 700px;
+}
+
+.innerContainer{
+    width: 100%;
+    height: 100%;
+    padding: 20% 5% 20% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    max-height: 450px;
+}
+
+.loginFields{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 500px;
+}
+
+.inputLabels{
+    width: 100%;
+    max-width: 500px;
+    font-weight: 500;
+
+}
+
+.inputFields{
+    width: 100%;
+    max-width: 500px;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.loginButton{
+    width: 100%;
+    max-width: 500px;
+    border: none;
+    color: black;
+    background-color: lightgrey;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    margin-bottom: 1rem;
+    transition: all 300ms ease;
+}
+
+.loginButton:hover{
+    background-color: dimgray;
+    color: whitesmoke;
+
+}
+
+
+.googlebutton{
+    border: none;
+    background-color: lightgrey;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    margin-bottom: 1rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    transition: all 300ms ease;
+}
+
+
+.googlebutton:hover{
+    background-color: dimgray;
+    color: whitesmoke;
+}

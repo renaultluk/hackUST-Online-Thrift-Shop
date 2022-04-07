@@ -24,7 +24,7 @@ export default function AuthProvider({ children }) {
     const router = useRouter();
 
     const login = () => {
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, provider) 
             .then((result) => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential?.accessToken;

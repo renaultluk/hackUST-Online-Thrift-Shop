@@ -19,3 +19,15 @@
     width: 100%;
     height: 100%;
 }
+
+
+.navbarItems{
+    color: white !important;
+    margin-left: 1rem;
+}
+
+
+.navbarItems:hover{
+    color: lightgreen !important;;
+    transition: all 300ms ease-in-out !important;;
+}
