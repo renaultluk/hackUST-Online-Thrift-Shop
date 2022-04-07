@@ -66,6 +66,7 @@ export default function AuthProvider({ children }) {
         auth.signOut();
         setCurrentUser(null);
         setLoadingUser(false);
+        router.push('/');
     };
 
     useEffect(() => {
