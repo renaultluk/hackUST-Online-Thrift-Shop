@@ -14,24 +14,8 @@ import FullHeightPage from "../../components/FullHeightPage";
 
 import styles from "../../styles/market.module.css";
 
-// const ProductBrief = (props) => {
-//     const { product } = props;
-//     return (
-//             <Card 
-//                 style={{
-//                     width: '18rem',
-//                     height: '18rem',
-//                 }}
-//                 onClick={}
-//             >
-//                 <Card.Img variant="top" src={product.image} />
-//                 <Card.Body>
-//                     <Card.Title>{product.name}</Card.Title>
-//                     <Card.Text>{product.price}</Card.Text>
-//                 </Card.Body>
-//             </Card>
-//     );
-// }
+import { IoWaterOutline } from 'react-icons/io5'
+
 
 const Market = (props) => {
     const router = useRouter();
@@ -63,6 +47,7 @@ const Market = (props) => {
         }
 
         fetchData().catch(err => console.log(err));
+
     } , [category]);
     
     const gotoItem = (id) => {
@@ -80,42 +65,49 @@ const Market = (props) => {
         <FullHeightPage>
             <Row>
                 <Col>
-                    <h1>Market</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                </Col>
-                <Col>
-                    <Button>
-                        Filter
-                    </Button>
+                    <h2 style={{fontSize: '1.5rem', fontWeight:'bold',  margin: '3rem 0 0 0'}}>{category}</h2>
+                    <h1 style={{fontSize: '2rem', fontWeight:'bold', margin: '0 0 3rem 0'}}>New Arrivals</h1>
                 </Col>
             </Row>
                 <Container>
                     <Row>
                         {items.map(item => (
-                            // <ProductBrief key={item.id} product={item} />
-                            <Col key={item.id} xs={{ span: 12, order: 3 }} md={{ span: 6, order: 1 }}>
-                                <Card 
-                                style={{
-                                        width: '18rem',
-                                        height: '18rem',
-                                    }}
-                                    onClick={() => gotoItem(item.id)}
-                                >
-                                    <Card.Img variant="top" src={item.images[0]} />
-                                    <Card.Body>
-                                        <Card.Title>{item.name}</Card.Title>
-                                        <Card.Text>${item.price}</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
+                            <ProductCard key={item.id} item={item} />
                         ))}
                     </Row>
                 </Container>
         </FullHeightPage>
     )
 }
+
+const ProductCard = (item) => {
+    const router = useRouter();
+    const queryParams = router.query;
+    const category = queryParams.category;
+
+    return (
+    <Col key={item.item.id} xs={{ span: 12, order: 3 }} md={{ span: 6, order: 1 }}>
+        <a href={`/market/item/?category=${category}&id=${item.item.id}`} className={styles.productCardContainer}>
+            <div className={styles.imageContainer}>
+                <img src={item.item.images[0]} alt={item.item.id} />
+            </div>
+            <div className={styles.descriptionContainer}>
+                <div className={styles.productLeft}>
+                    <p className={styles.productBrand}>{item.item.brand}</p>
+                    <p className={styles.productName}>{item.item.name}</p>
+                    <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> {`${item.item.ecostat??0}g`}</p>
+                </div>
+                <div className={styles.productRight}>
+                    <p className={styles.productOgPrice}>{`HK$${item.item.originalPrice??0}`}</p>
+                    <p className={styles.productPrice}>{`HK$${item.item.price??0}`}</p>
+                </div>
+            </div>
+
+
+        </a>
+    </Col>)
+
+}
+
 
 export default Market;

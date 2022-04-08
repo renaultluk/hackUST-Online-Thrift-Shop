@@ -1,5 +1,6 @@
 .navbar {
     width: 100%;
+    background-color: rgba(101,193,140,255) !important;
 }
 
 .navbarContainer {
@@ -24,10 +25,25 @@
 .navbarItems{
     color: white !important;
     margin-left: 1rem;
+    background-color: rgba(101,193,140,255) !important;
 }
 
 
 .navbarItems:hover{
-    color: lightgreen !important;;
-    transition: all 300ms ease-in-out !important;;
+    color: #CDEEDB !important;;
+
+}
+
+.buttonGroup{
+    background-color: rgba(101,193,140,255) !important;
+}
+
+.navbarButtons{
+    border: none !important;
+    background-color: rgba(101,193,140,255) !important;
+}
+
+.navbarButtons:hover{
+    border: none !important;
+    background-color: #519a70!important;
 }

@@ -35,3 +35,81 @@
     display: flex;
     overflow-y: scroll;
 }
+
+.imageContainer{
+    max-width: 225px;
+    max-height: 225px;
+    overflow: hidden;
+}
+
+.productCardContainer {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    max-width: 225px;
+}
+
+.productCardContainer:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.productCardContainer img{
+    width: 100%;
+}
+
+.descriptionContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 0.25rem;
+    width: 100%;
+}
+
+.descriptionContainer p{
+    margin:0;
+    
+}
+
+.productBrand{
+    font-weight: bolder;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.productLeft{
+    width: 75%;
+}
+
+.productRight{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 25%;
+}
+
+.productName{
+    font-weight: 400;
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.productEco{
+    font-weight: bold;
+    font-size: 0.75rem;
+    color: blue;
+}
+
+.productOgPrice{
+    font-weight: 400;
+    font-size: 0.75rem;
+    text-decoration: line-through;
+}
+
+.productPrice{
+    font-weight: bold;
+    font-size: 0.75rem;
+    color: red;
+}
+

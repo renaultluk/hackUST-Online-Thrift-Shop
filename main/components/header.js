@@ -46,7 +46,7 @@ const Header = () => {
                         <ButtonGroup className={styles.buttonGroup}>
                             {
                             !loadingUser && currentUser && 
-                            <Button
+                            <Button className={styles.navbarButtons}
                                 variant="secondary"
                                 href="/profile"
                             >
@@ -56,14 +56,14 @@ const Header = () => {
 
                             {
                             !loadingUser && currentUser && 
-                            <Button
+                            <Button className={styles.navbarButtons}
                                 variant="secondary"
                             >
                                 <FaHeart />
                             </Button>
                             }
 
-                            <Button
+                            <Button className={styles.navbarButtons}
                                 variant="secondary"
                                 onClick={() => {
                                     router.push({
@@ -75,14 +75,14 @@ const Header = () => {
                             </Button>
                             {
                             (!loadingUser && currentUser) ?
-                            <Button
+                            <Button className={styles.navbarButtons}
                                 variant="secondary"
                                 onClick={logout}
                             >
                              Log Out
                             </Button>
                             :
-                            <Button
+                            <Button className={styles.navbarButtons}
                                 variant="secondary"
                                 href="/login"
                             >
