@@ -10,6 +10,8 @@ import useShoppingStore from "../../utils/ShoppingStore";
 
 import FullHeightPage from "../../components/FullHeightPage"
 import ProductTag from "../../components/ProductTag"
+import { IoWaterOutline } from 'react-icons/io5'
+
 
 import styles from "../../styles/product-info.module.css"
 
@@ -39,11 +41,6 @@ const ProductInfo = () => {
         fetchData().catch(err => console.log(err));
     }, [category, id])
 
-    useEffect( () => {
-        console.log(product)
-
-    }, [product])
-
     const addToCart = () => {
         const item = {
             index: id,
@@ -66,40 +63,48 @@ const ProductInfo = () => {
                     Added to Cart
                 </Alert> : null
             }
-            <Container className={styles.pageContainer}>
-                {product&& Object.keys(product).length ?
-                    <>
-                        <Carousel className={styles.carousel}>
-                            {
-                                product.images.map((image, index) => (
-                                    <Carousel.Item key={index}>
-                                        <Image
-                                            src={image}
-                                            // layout="fill"
-                                            width={500}
-                                            height={500}
-                                        />
-                                    </Carousel.Item>
-                                )
-                            )}
-                        </Carousel>
-                        <Container className={styles.productInfoColumn}>
-                            <span className={styles.productName}>{product.name}</span>
-                            <span className={styles.productPrice}>${product.price}</span>
-                            <p className={styles.productDescription}>{product.description}</p>
-                            <div className={styles.productTags}>
-                                { product.tags.map((tag, index) => (
-                                    <ProductTag key={index} tag={tag} category={category} />
-                                ))}
-                            </div>
-                            <Button onClick={addToCart}>
-                                <IoMdAdd />
-                                Add to Cart
-                            </Button>
-                        </Container>
-                    </> : null
+            <div className={styles.outerContainer}>
+                {product && Object.keys(product).length ?
+                    <div className={styles.upperOuterContainer}>
+                        <div className={styles.productImageDiv}>
+                            <Carousel className={styles.carousel}>
+                                {
+                                    product.images.map((image, index) => (
+                                        <Carousel.Item key={index}>
+                                            <img
+                                                src={image}
+                                                style={{width: '100%', maxHeight:'400px', height: 'fit-content'}}
+                                            />
+                                        </Carousel.Item>
+                                    )
+                                )}
+                            </Carousel>
+                        </div>
+                        <div className={styles.productInfoDiv}>
+                                <p className={styles.productBrand}>{product.brand}</p>
+                                <p className={styles.productName}>{product.name}</p>
+                                <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> <span className={styles.ecotext}>{`${product.ecostat??0}g`}</span></p>
+                                <p className={styles.productOgPrice}>{`HK$${product.originalPrice??0}`}</p>
+                                <p className={styles.productPrice}>HK${product.price}</p>
+                                <button onClick={addToCart} className={styles.cartButton}>
+                                    <IoMdAdd />
+                                    Add to Cart
+                                </button>
+                        </div>
+                    </div> 
+                    : null
                 }
-            </Container>
+
+                { product&&
+                    <div className={styles.descriptionDiv}>
+                        <p className={styles.descriptionTitle}>Product Details</p>
+                        <p className={styles.description}>{product.description}</p>
+                        
+                    </div>
+                }
+
+
+            </div>
         </FullHeightPage>
     )
 };

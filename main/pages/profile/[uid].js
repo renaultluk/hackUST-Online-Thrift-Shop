@@ -56,6 +56,7 @@ const UserProfile = () => {
     return (
         <> { userData &&
             <div>
+                <button onClick={logout}>Logout</button>
                 <div>{userData && <Image width="150" height="150" alt="profile-pic" src={userData?.photoURL}/>}</div>
                 <div>Name: {userData?.displayName} </div>
                 <div>Email: {userData?.email} </div>

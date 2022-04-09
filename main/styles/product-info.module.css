@@ -6,9 +6,11 @@
 }
 
 .carousel {
-    width: 500px;
-    height: 500px;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .productInfoColumn {
     display: flex;
@@ -17,20 +19,135 @@
     margin: 0;
 }
 
-.productName {
-    font-size: 1.5em;
+.productBrand {
+    font-size: 1rem;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
-.productPrice {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: blue;
+.productName {
+    font-size: 1rem;
+    font-weight: 400;
+    
 }
+
 
 .alert {
     position:fixed;
     top: 50;
     left: 25;
     z-index: 9999;
+}
+
+.upperOuterContainer{
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+    height: 100%;
+
+}
+.productImageDiv{
+    width:60%;
+    height: 100%;
+    align-items: center;
+    justify-content:center;
+    max-height: 400px;
+    max-width: 450px;
+    overflow: hidden;
+}
+
+.productInfoDiv{
+    width:40%;
+    height: 100%;
+    align-self: flex-start;
+    justify-self: flex-start;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+.productEco{
+    font-weight: bold;
+    font-size: 1rem;
+    color: blue;
+    padding: 0;
+    margin-bottom:1rem;
+}
+
+
+.ecotext{
+    padding-top: 1rem;
+}
+
+.productOgPrice{
+    font-weight: 400;
+    font-size: 1rem;
+    text-decoration: line-through;
+    padding: 0;
+    margin:0;
+}
+
+.productPrice{
+    font-weight: bold;
+    font-size: 1rem;
+    color: red;
+    padding: 0;
+    margin:0 0 2rem 0;
+}
+
+.outerContainer{
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    display:flex;
+    flex-direction:column;
+}
+
+
+.cartButton{
+    border: none;
+    background-color: rgba(101,193,140,0.5);
+    font-weight: 500;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    margin-bottom: 1rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    transition: all 300ms ease;
+    border-radius: 5px;
+}
+
+
+.cartButton:hover{
+    background-color: #519a70;
+    color: whitesmoke;
+}
+
+.descriptionDiv{
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.descriptionTitle{
+    margin-top: 5%;
+    font-size: 1.75rem;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 2rem 0 ;
+    border-bottom: 2px solid lightgrey;
+    
+}
+
+.description{
+    align-self: flex-start;
+    padding-left: 2.5%;
 }

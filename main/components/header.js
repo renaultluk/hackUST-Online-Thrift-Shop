@@ -44,24 +44,21 @@ const Header = () => {
 
                     <Nav>
                         <ButtonGroup className={styles.buttonGroup}>
-                            {
-                            !loadingUser && currentUser && 
                             <Button className={styles.navbarButtons}
                                 variant="secondary"
                                 href="/profile"
                             >
                                 <FaUser />
                             </Button>
-                            }
+                            
 
-                            {
-                            !loadingUser && currentUser && 
+
                             <Button className={styles.navbarButtons}
                                 variant="secondary"
                             >
                                 <FaHeart />
                             </Button>
-                            }
+                            
 
                             <Button className={styles.navbarButtons}
                                 variant="secondary"
@@ -73,22 +70,6 @@ const Header = () => {
                             >
                             <FaShoppingBag />
                             </Button>
-                            {
-                            (!loadingUser && currentUser) ?
-                            <Button className={styles.navbarButtons}
-                                variant="secondary"
-                                onClick={logout}
-                            >
-                             Log Out
-                            </Button>
-                            :
-                            <Button className={styles.navbarButtons}
-                                variant="secondary"
-                                href="/login"
-                            >
-                             Sign In
-                            </Button>
-                            }
 
                         </ButtonGroup>
                     </Nav>
