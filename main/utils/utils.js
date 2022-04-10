@@ -13,4 +13,11 @@ const generateOrderId = () =>{
 }
 
 
+export const getDateString = (unixTime) =>{
+  if(!unixTime) return null;
+
+  const dateObj = new Date(unixTime*1000)
+  return `${dateObj.getDate()}/${dateObj.getMonth()}/${dateObj.getFullYear()}`
+}
+
 export default generateOrderId;
