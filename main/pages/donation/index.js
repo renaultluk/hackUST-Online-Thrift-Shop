@@ -11,6 +11,7 @@ import { useAuth } from "../../utils/AuthContext";
 
 import useDonationStore from '../../utils/DonationStore';
 import generateOrderID from '../../utils/utils';
+import { donationRewards } from '../../utils/CalculationUtils';
 
 import styles from '../../styles/donation.module.css';
 
@@ -20,12 +21,12 @@ const Donation = () => {
     const donationItems = donationStore.itemsDonated;
     const router = useRouter();
 
-    const [rewards, setRewards] = useState(
-        {
-            fullVouchers: 0,
-            partialVoucher: 12
-        }
-    );
+    // const [rewards, setRewards] = useState(
+    //     {
+    //         fullVouchers: 0,
+    //         partialVoucher: 12
+    //     }
+    // );
 
     const handleConfirm = () => {
         const donationId = generateOrderID();
@@ -52,6 +53,7 @@ const Donation = () => {
     }
 
     let totalWeight = donationItems.reduce((acc, curr) => acc + curr.weight, 0);
+    let rewards = donationRewards(totalWeight);
     
     return (
         <FullHeightPage>
@@ -108,9 +110,9 @@ const Donation = () => {
                         <h4>Total Weight: {totalWeight}kg</h4>
                         <h4>
                             Estimated Rewards: &nbsp;
-                            {rewards.fullVouchers}
+                            {rewards.numberOfFullVouchers}
                             &nbsp;Full Vouchers & 1 &nbsp;
-                            {rewards.partialVoucher}
+                            {rewards.partialVoucherValue}
                             % Voucher
                         </h4>
                     </Col>

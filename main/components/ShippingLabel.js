@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
   },
   qrCode: {
     margin: 12,
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
   }
 });
 
@@ -76,8 +76,8 @@ const ShippingLabel = () => {
                             </Text>
                             <Text>Total Weight: {currentDonation.totalWeight}kg</Text>
                             <Text style={{ wrap: true }}>Estimated Rewards: 
-                                {currentDonation.estimatedRewards.fullVouchers} Full Vouchers &
-                                1 {currentDonation.estimatedRewards.partialVoucher}% Voucher</Text>
+                                {currentDonation.estimatedRewards.numberOfFullVouchers} Full Vouchers &
+                                1 {currentDonation.estimatedRewards.partialVoucherValue}% Voucher</Text>
                         </View>
                     </View>
                     <View style={styles.box}>

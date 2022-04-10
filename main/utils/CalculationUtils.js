@@ -1,4 +1,4 @@
-import EMISSION_FACTORS from '/EmissionFactors.json';
+import EMISSION_FACTORS from '../public/EmissionFactor.json';
 
 const continentCode = (country)  => {
     switch (country.continent) {
@@ -80,8 +80,8 @@ export const shippingEmissions = (type, start, destination, weight) => {
 }
 
 export const donationRewards = (weight) => {
-    const weightInKg = weight / 1000;
-    const totalRewards = weightInKg * 7.5;
+    // const weightInKg = weight / 1000;
+    const totalRewards = weight * 7.5;
 
     const numberOfFullVouchers = Math.floor(totalRewards / 15);
     const partialVoucherValue = totalRewards % 15;
