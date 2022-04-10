@@ -1,0 +1,45 @@
+{
+    "air": {
+        "longer": 868.3,
+        "shorter": 2050.0
+    },
+    "barge": 17.5,
+    "ocean": {
+        "dry": {
+            "Asia-NA(E)": 68.1,
+            "Asia-NA(W)": 59.1,
+            "Med-NA(E)": 79.6,
+            "Med-NA(W)": 76.8,
+            "NA-Africa": 89.5,
+            "NA-Oceania": 81.3,
+            "NA-SA": 68.6,
+            "NA(E)-ME": 77.0,
+            "NE-NA(E)": 78.2,
+            "NE-NA(W)": 69.6
+        },
+        "refrigerated": {
+            "Asia-NA(E)": 95.3,
+            "Asia-NA(W)": 87.9,
+            "Med-NA(E)": 113.9,
+            "Med-NA(W)": 112.4,
+            "NA-Africa": 127.1,
+            "NA-Oceania": 109.2,
+            "NA-SA": 102.1,
+            "NA(E)-ME": 101.0,
+            "NE-NA(E)": 107.6,
+            "NE-NA(W)": 107.6
+        }
+    },
+    "rail": 292.8,
+    "truck": {
+        "all": 1700.0,
+        "dray": 1750.0,
+        "expedited": 1200.0,
+        "flatbed": 1800.0,
+        "heavy-bulk": 2000.0,
+        "LTL": 1625.0,
+        "mixed": 1700.0,
+        "tanker": 1750.0,
+        "truck-load-dry-vans": 1700.0
+    }
+}
