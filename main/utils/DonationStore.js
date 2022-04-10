@@ -40,6 +40,11 @@ const useDonationStore = create(
                 itemsDonated: state.itemsDonated.filter(i => i !== item)
             }))
         },
+        updateItemInDonation: (item, index) => {
+            set(state => ({
+                itemsDonated: state.itemsDonated.map((i, idx) => idx === index ? item : i)
+            }))
+        },
         clearDonation: () => {
             set(state => ({
                 itemsDonated: []

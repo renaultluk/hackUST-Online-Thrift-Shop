@@ -20,8 +20,6 @@ const Donation = () => {
     const donationItems = donationStore.itemsDonated;
     const router = useRouter();
 
-    const [totalWeight, setTotalWeight] = useState(0);
-
     const [rewards, setRewards] = useState(
         {
             fullVouchers: 0,
@@ -52,6 +50,8 @@ const Donation = () => {
             }
         });
     }
+
+    let totalWeight = donationItems.reduce((acc, curr) => acc + curr.weight, 0);
     
     return (
         <FullHeightPage>
@@ -105,6 +105,7 @@ const Donation = () => {
                 <Row className="mt-2">
                     <Col>
                         <h3>Total Items: {donationItems.length}</h3>
+                        <h4>Total Weight: {totalWeight}kg</h4>
                         <h4>
                             Estimated Rewards: &nbsp;
                             {rewards.fullVouchers}

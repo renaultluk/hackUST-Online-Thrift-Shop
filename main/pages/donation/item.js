@@ -25,6 +25,11 @@ const DonateItemDetails = () => {
     );
 
     const handleUpload = () => {
+        // if (itemID) {
+        //     donationStore.updateItemInDonation(item, itemID);
+        // } else {
+        //     donationStore.addToDonation(item);
+        // }
         router.back();
     }
 
