@@ -47,6 +47,7 @@
     flex-direction: column;
     color: inherit;
     max-width: 225px;
+    margin: 2rem;
 }
 
 .productCardContainer:hover {
@@ -113,3 +114,8 @@
     color: red;
 }
 
+.productsMainContainer{
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -76,13 +76,11 @@ const Market = (props) => {
                     <h1 style={{fontSize: '2rem', fontWeight:'bold', margin: '0 0 3rem 0'}}>New Arrivals</h1>
                 </Col>
             </Row>
-                <Container>
-                    <Row>
+            <div className={styles.productsMainContainer}>
                         {items.map(item => (
                             <ProductCard key={item.id} item={item} />
                         ))}
-                    </Row>
-                </Container>
+            </div>
         </FullHeightPage>
         </>
     )
@@ -94,7 +92,6 @@ const ProductCard = (item) => {
     const category = queryParams.category;
 
     return (
-    <Col key={item.item.id} xs={{ span: 12, order: 3 }} md={{ span: 6, order: 1 }}>
         <a href={`/market/item/?category=${category}&id=${item.item.id}`} className={styles.productCardContainer}>
             <div className={styles.imageContainer}>
                 <img src={item.item.images[0]} alt={item.item.id} />
@@ -103,7 +100,7 @@ const ProductCard = (item) => {
                 <div className={styles.productLeft}>
                     <p className={styles.productBrand}>{item.item.brand}</p>
                     <p className={styles.productName}>{item.item.name}</p>
-                    <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> {`${item.item.ecostat??0}g`}</p>
+                    <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> {`${item.item.ecostat??0}kg`}</p>
                 </div>
                 <div className={styles.productRight}>
                     <p className={styles.productOgPrice}>{`HK$${item.item.originalPrice??0}`}</p>
@@ -113,7 +110,7 @@ const ProductCard = (item) => {
 
 
         </a>
-    </Col>)
+        )
 
 }
 

@@ -93,7 +93,7 @@ const ProductInfo = () => {
                             <div className={styles.productInfoDiv}>
                                     <p className={styles.productBrand}>{product.brand}</p>
                                     <p className={styles.productName}>{product.name}</p>
-                                    <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> <span className={styles.ecotext}>{`${product.ecostat??0}g`}</span></p>
+                                    <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> <span className={styles.ecotext}>{`${product.ecostat??0}kg`}</span></p>
                                     <p className={styles.productOgPrice}>{`HK$${product.originalPrice??0}`}</p>
                                     <p className={styles.productPrice}>HK${product.price}</p>
                                     <button onClick={addToCart} className={styles.cartButton}>
