@@ -2,7 +2,7 @@ import create from 'zustand'
 import { persist } from 'zustand/middleware' 
 
 const useDonationStore = create(
-    // persist(
+    persist(
     (set, get) => ({
         itemsDonated: [
             {
@@ -59,6 +59,6 @@ const useDonationStore = create(
         name: 'Donations'
     }
 )
-// )
+)
 
 export default useDonationStore
