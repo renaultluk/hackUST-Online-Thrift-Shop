@@ -43,7 +43,7 @@ const Donation = () => {
         setDoc(donateRef, donation, { merge: true });
 
         donationStore.appendToPastDonations(donation);
-        donationStore.clearDonation();
+        // donationStore.clearDonation();
         router.push({
             pathname: '/donation/confirm',
             query: {

@@ -65,15 +65,11 @@ const ShippingLabel = () => {
                             <Text>Donation ID: {currentDonation.donationId}</Text>
                             <Text>User ID: {currentDonation.userId}</Text>
                             <Text>Items Donated: </Text>
-                            <Text style={styles.ulContainer}>
-                                <ul>
-                                    {currentDonation.itemsDonated.map((item, index) => (
-                                        <li key={index}>
-                                            • {item.name} - {item.weight}kg
-                                        </li>
-                                    ))}
-                                </ul>
-                            </Text>
+                                  {currentDonation.itemsDonated.map((item, index) => (
+                                      <Text key={index}>
+                                          &ensp;• {item.name} - {item.weight}kg
+                                      </Text>
+                                  ))}
                             <Text>Total Weight: {currentDonation.totalWeight}kg</Text>
                             <Text style={{ wrap: true }}>Estimated Rewards: 
                                 {currentDonation.estimatedRewards.numberOfFullVouchers} Full Vouchers &

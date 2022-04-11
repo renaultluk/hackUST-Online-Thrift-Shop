@@ -20,18 +20,30 @@ const DonateItemDetails = () => {
             {
                 name: "",
                 weight: 0,
-                image: ""
+                image: "",
+                imageFile: null
             }
     );
 
+    const handleFileChange = (e) => {
+        setItem({
+            ...item,
+            image: URL.createObjectURL(e.target.files[0]),
+            imageFile: e.target.files[0]
+        })
+    }
+
     const handleUpload = () => {
-        // if (itemID) {
-        //     donationStore.updateItemInDonation(item, itemID);
-        // } else {
-        //     donationStore.addToDonation(item);
-        // }
+        delete item.imageFile;
+        if (itemID) {
+            donationStore.updateItemInDonation(item, itemID);
+        } else {
+            donationStore.addToDonation(item);
+        }
         router.back();
     }
+
+    console.log(item.image);
 
     return (
         <FullHeightPage>
@@ -61,12 +73,15 @@ const DonateItemDetails = () => {
                     <Form.Group>
                         {item.image.length > 0 ?
                             <Row>
-                                <Image
-                                    src={item.image}
-                                    width={100}
-                                    height={100}
-                                    className="mt-2"
-                                />
+                                <div style={{ position: "relative" }}>
+                                    <Image
+                                        src={item.image}
+                                        width={100}
+                                        height={100}
+                                        layout="intrinsic"
+                                        className="mt-2"
+                                    />
+                                </div>
                             </Row> :
                             <></>
                         }
@@ -74,9 +89,7 @@ const DonateItemDetails = () => {
                         <Form.Control
                             type="file"
                             placeholder="Upload image"
-                            onChange={(e) => {
-                                setItem({ ...item, image: e.target.files[0] })
-                            }}
+                            onChange={handleFileChange}
                         />
                     </Form.Group>
 
