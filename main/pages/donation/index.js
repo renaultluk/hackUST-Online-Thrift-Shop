@@ -117,10 +117,11 @@ const Donation = () => {
                             <h4>Total Weight: {totalWeight}kg</h4>
                             <h4>
                                 Estimated Rewards: &nbsp;
-                                {rewards.numberOfFullVouchers}
+                                {/* {rewards.numberOfFullVouchers}
                                 &nbsp;Full Vouchers & 1 &nbsp;
                                 {rewards.partialVoucherValue}
-                                % Voucher
+                                % Voucher */}
+                                {rewards} Thriftee Dollars
                             </h4>
                         </Col>
                         <Col xs lg={2}  className="d-flex justify-content-end">

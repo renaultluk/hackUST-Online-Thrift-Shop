@@ -72,8 +72,7 @@ const ShippingLabel = () => {
                                   ))}
                             <Text>Total Weight: {currentDonation.totalWeight}kg</Text>
                             <Text style={{ wrap: true }}>Estimated Rewards: 
-                                {currentDonation.estimatedRewards.numberOfFullVouchers} Full Vouchers &
-                                1 {currentDonation.estimatedRewards.partialVoucherValue}% Voucher</Text>
+                                {currentDonation.estimatedRewards} Thriftee Dollars</Text>
                         </View>
                     </View>
                     <View style={styles.box}>

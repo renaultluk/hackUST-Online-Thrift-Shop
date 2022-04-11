@@ -81,10 +81,10 @@ export const shippingEmissions = (type, start, destination, weight) => {
 
 export const donationRewards = (weight) => {
     // const weightInKg = weight / 1000;
-    const totalRewards = weight * 7.5;
+    const totalRewards = weight * 50;
 
-    const numberOfFullVouchers = Math.floor(totalRewards / 15);
-    const partialVoucherValue = totalRewards % 15;
+    // const numberOfFullVouchers = Math.floor(totalRewards / 15);
+    // const partialVoucherValue = totalRewards % 15;
 
-    return { numberOfFullVouchers, partialVoucherValue };
+    return totalRewards;
 }
