@@ -63,16 +63,6 @@ const ProductInfo = () => {
             <FullHeightPage>
 
 
-                { showAddToCart ? 
-                    <Alert
-                        variant="success"
-                        transition={true}
-                        dismissible
-                        className={styles.alert}
-                    >
-                        Added to Cart
-                    </Alert> : null
-                }
                 <div className={styles.outerContainer}>
                     {product && Object.keys(product).length ?
                         <div className={styles.upperOuterContainer}>
@@ -96,9 +86,9 @@ const ProductInfo = () => {
                                     <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> <span className={styles.ecotext}>{`${product.ecostat??0}kg`}</span></p>
                                     <p className={styles.productOgPrice}>{`HK$${product.originalPrice??0}`}</p>
                                     <p className={styles.productPrice}>HK${product.price}</p>
-                                    <button onClick={addToCart} className={styles.cartButton}>
+                                    <button disabled={showAddToCart} onClick={addToCart} className={styles.cartButton}>
                                         <IoMdAdd />
-                                        Add to Cart
+                                        {showAddToCart ? "Added to Cart!" : "Add to Cart"}
                                     </button>
                             </div>
                         </div> 

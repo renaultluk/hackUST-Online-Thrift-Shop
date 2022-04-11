@@ -2,7 +2,7 @@ import create from 'zustand'
 import { persist } from 'zustand/middleware' 
 
 const useShoppingStore = create(
-    // persist(
+    persist(
     (set, get) => ({
         shoppingCart: [],
         addToShoppingCart: (item) => {
@@ -12,7 +12,7 @@ const useShoppingStore = create(
         },
         removeFromShoppingCart: (item) => {
             set(state => ({
-                shoppingCart: state.shoppingCart.filter(i => i !== item)
+                shoppingCart: state.shoppingCart.filter(i => i.index !== item.index)
             }))
         },
         clearShoppingCart: () => {
@@ -24,6 +24,6 @@ const useShoppingStore = create(
         name: 'shoppingCart'
     }
 )
-// )
+)
 
 export default useShoppingStore

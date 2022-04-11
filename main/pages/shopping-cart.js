@@ -22,20 +22,19 @@ const ShoppingCart = () => {
     const [cart, setCart] = useState([]);
     
     const fetchData = async () => {
-        let i = 1;
+
+        let results = []
         shopStore.shoppingCart.forEach(async item => {
-            
             const docRef = doc(firestore, 'products', item.category, item.category, item.index);
             const itemSnap = await getDoc(docRef);
-            
+
             if (itemSnap.exists) {
                 let tmpItem = itemSnap.data();
-                tmpItem.index = item.index;
-                // cart.push(tmpItem);
-                console.log(cart, i);
-                i++;
+                
+                tmpItem = {...tmpItem, index: item.index};
 
-                setCart(cart => [...cart, tmpItem]);
+                results = [...results, tmpItem];
+                setCart(results)
             }
         })
     }
@@ -65,10 +64,15 @@ const ShoppingCart = () => {
         fetchData().catch(err => console.log(err));
     }, []);
 
+    useEffect( () => {
+        console.log(shopStore.shoppingCart)
+        console.log('cart' , cart)
+    }, [cart])
+
+
+
     let total = cart.reduce((acc, item) => acc + item.price, 0);
-    // let total = 0;
-    console.log(total);
-    console.log("rendered");
+
 
     return (
 
@@ -82,12 +86,12 @@ const ShoppingCart = () => {
             <Container>
                 <h1>Shopping Cart</h1>
                 <Container>
-                    {cart.map((item, index) => (
+                    {
+                    cart.map((item, index) => {
+                        return (
                         <Row key={index} className={styles.productRow}>
-                            <Image
+                            <img
                                 src={item.images[0]}
-                                width={100}
-                                height={100}
                                 className={styles.productImage}
                             />
                             <Col>
@@ -106,8 +110,9 @@ const ShoppingCart = () => {
                                     -
                                 </Button>
                             </Col>
-                        </Row>
-                    ))}
+                        </Row>)
+                        })
+                        }
                 </Container>
                 <Row className="mt-2">
                     <Col>
