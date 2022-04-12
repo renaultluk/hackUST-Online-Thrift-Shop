@@ -131,6 +131,8 @@ const UserProfile = () => {
                         <p className={styles.infoData}>
                             MasterCard **** **** **** 9527
                         </p>
+                        <button className={styles.logout} onClick={logout}>Log Out</button>
+
                     </div>
                 }
                 {(activeTab == 1) &&

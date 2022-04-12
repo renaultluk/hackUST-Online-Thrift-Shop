@@ -84,7 +84,7 @@ const ShoppingCart = () => {
         </Head>
         <FullHeightPage>
             <Container>
-                <h1>Shopping Cart</h1>
+                <h1 className={styles.titleHeader}>Shopping Cart</h1>
                 <Container>
                     {
                     cart.map((item, index) => {
@@ -95,12 +95,13 @@ const ShoppingCart = () => {
                                 className={styles.productImage}
                             />
                             <Col>
-                                <h3>{item.name}</h3>
+                                <h3 className={styles.productName}>{item.name}</h3>
                             </Col>
                             <Col xs lg={2} className="d-flex justify-content-end align-items-center">
-                                <span>Price: {item.price}</span>
+                                <span className={styles.pricetag}>HK${item.price}</span>
                                 <Button
                                     variant="danger"
+                                    className={styles.removeButton}
                                     onClick={() => {
                                             shopStore.removeFromShoppingCart(item)
                                             setCart(cart => cart.filter(i => i !== item))
@@ -116,13 +117,14 @@ const ShoppingCart = () => {
                 </Container>
                 <Row className="mt-2">
                     <Col>
-                        <h3>Total: {total}</h3>
+                        <h3 className={styles.priceTotal}>Total: $HK{total}</h3>
                     </Col>
                     <Col xs lg={2}  className="d-flex justify-content-end">
                         {  
                         !loadingUser&&currentUser&&
                             <Button
                                 variant="success"
+                                className={styles.checkout}
                                 onClick={handleCheckOutButton}
                             >Checkout</Button>
                         }
@@ -131,6 +133,7 @@ const ShoppingCart = () => {
                         !loadingUser&&!currentUser&&
                             <Button
                                 href="/login"
+                                className={styles.checkout}
                                 variant="success"
                             >Login/Signup</Button>
                         }

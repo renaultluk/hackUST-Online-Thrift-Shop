@@ -5,9 +5,37 @@
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    margin: 2rem 0 2rem 0;
 }
 
 .productImage{
     width: 100px;
     height: 100px;
+}
+
+.titleHeader {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.productName{
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+.pricetag{
+    font-size: 1.25rem;
+    margin-right: 1.5rem;
+
+}
+
+.removeButton{
+    border-radius: 0.25rem;
+    padding: 0.05rem 1rem 0.05rem 1rem;
+}
+
+
+.priceTotal{
+    font-size: 1.25rem;
 }

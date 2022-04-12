@@ -69,7 +69,8 @@
     font-weight: 500;
     padding: 0.25rem 0.5rem 0.25rem 0.5rem;
     margin-bottom: 1rem;
-    width: 50%;
+    width: 100%;
+    ax-width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -235,3 +235,12 @@
 
 
 }
+
+.logout{
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 0.15rem;
+    color:white;
+    border: none;
+    background-color: dimgrey;
+    margin-top: 0.5rem;
+}
