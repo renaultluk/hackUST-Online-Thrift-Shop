@@ -22,7 +22,7 @@ const Header = () => {
         >
             <Container className={styles.navbarContainer}>
                 <Navbar.Brand href="/">
-                    Thriftee
+                    <img src='/logo.png' className={styles.logo}/>
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

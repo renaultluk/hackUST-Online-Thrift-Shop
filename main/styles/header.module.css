@@ -12,6 +12,14 @@
     align-items: space-between;
 }
 
+.logo{
+    height: 40px;
+    width: auto;
+    padding: 0.4rem;
+    padding-right: 4rem;
+    margin: 0;
+}
+
 .nav {
     display: flex;
     flex-direction: row;
@@ -24,7 +32,9 @@
 
 .navbarItems{
     color: white !important;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
     background-color: rgba(101,193,140,255) !important;
 }
 

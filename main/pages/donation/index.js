@@ -53,7 +53,7 @@ const Donation = () => {
         });
     }
 
-    let totalWeight = donationItems.reduce((acc, curr) => acc + curr.weight, 0);
+    let totalWeight = donationItems.reduce((acc, curr) => acc + Number(curr.weight), 0);
     let rewards = donationRewards(totalWeight);
     
     return (
@@ -69,7 +69,7 @@ const Donation = () => {
                     <Container>
                         {donationItems.map((item, index) => (
                             <Row key={index} className={styles.productRow}>
-                                <Image
+                                <img
                                     src={item.image}
                                     width={100}
                                     height={100}

@@ -83,19 +83,17 @@
 
 }
 .donations{
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.donationRow{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
+
+.donationRowLabels{
+    padding: 1%;
+    text-align: center;
 }
+
 
 .productBrief {
     display: flex;

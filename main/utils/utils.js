@@ -17,7 +17,7 @@ export const getDateString = (unixTime) =>{
   if(!unixTime) return null;
 
   const dateObj = new Date(unixTime*1000)
-  return `${dateObj.getDate()}/${dateObj.getMonth()}/${dateObj.getFullYear()}`
+  return `${dateObj.getDate()}/${dateObj.getMonth()+1}/${dateObj.getFullYear()}`
 }
 
 export default generateOrderId;

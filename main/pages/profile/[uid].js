@@ -8,7 +8,11 @@ import styles from "../../styles/profile.module.css";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { getDateString } from '../../utils/utils';
 import Head from 'next/head'
+import { donationRewards } from '../../utils/CalculationUtils';
+import { pdf, PDFDownloadLink, PDFViewer } from '@react-pdf/renderer'
+import IndividualShippingLabel from '../../components/IndividualShippingLabel'
 
+import { FaFileDownload } from 'react-icons/fa'
 
 const UserProfile = () => {
 
@@ -76,9 +80,11 @@ const UserProfile = () => {
             getUserPurchases();
             getUserDonations();
         }
-        console.log(ordersData)
+
     }, [userData, activeTab])
 
+
+    const userEcoPoints = donationsData?.reduce((acc, curr) => acc + Number(curr.estimatedRewards), 0)
 
     return (
         <> 
@@ -130,23 +136,34 @@ const UserProfile = () => {
                 {(activeTab == 1) &&
 
                     <div className={styles.contentInfoContainer}>
-                        <p className={styles.points}> {userData?.ecopoints ?? 0} <span style={{fontSize:'1rem', fontWeight: 'normal', marginLeft:'1rem', paddingTop:'0.5rem'}}>Thriftee Dollars</span></p>
+                        <p className={styles.points}> {userEcoPoints ?? 0} <span style={{fontSize:'1rem', fontWeight: 'normal', marginLeft:'1rem', paddingTop:'0.5rem'}}>Thriftee Dollars</span></p>
 
                         <div className={styles.donationsContainer}> 
                             <div className={styles.infoLabel}> Past Donations </div>
-                            <div className={styles.donations}>
+                            <table className={styles.donations} >
+                                <tr className={styles.donationRow}>
+                                    <th className={styles.donationRowLabels}>Date</th>
+                                    <th className={styles.donationRowLabels}>Weight</th>
+                                    <th className={styles.donationRowLabels}>Rewards</th>
+                                    <th className={styles.donationRowLabels}>Label</th>
+                                </tr>
                                 {
                                 donationsData.map((donation,i) => {
                                     return (
-                                    <div key={`donation-${i.toString()}`} className={styles.donationRow}>
-                                        <p className={styles.donationRowLabels}>{getDateString(donation.donationDate?.seconds)}</p>
-                                        <p className={styles.donationRowLabels}>{donation.totalWeight}kg</p>
-                                        <p className={styles.donationRowLabels}>{donation.estimatedRewards?.partialVoucher}TD</p>
-                                    </div>)
+                                    <tr key={`donation-${i.toString()}`} className={styles.donationRow}>
+                                        <td className={styles.donationRowLabels}>{getDateString(donation.donationDate?.seconds)}</td>
+                                        <td className={styles.donationRowLabels}>{Number(donation.totalWeight)}kg</td>
+                                        <td className={styles.donationRowLabels}>{donation.estimatedRewards}TD</td>
+                                        <td className={styles.donationRowLabels}>
+                                            <PDFDownloadLink document={<IndividualShippingLabel currentDonation={donation} />} fileName={`thriftee-label-${donation.donationId}.pdf`}>
+                                                {({ blob, url, loading, error }) => (loading ? '...' : <FaFileDownload style={{alignSelf : 'center'}} />)}
+                                            </PDFDownloadLink>
+                                        </td>
+                                    </tr>)
                                 })
                                 }
 
-                            </div>
+                            </table>
                         </div>
                     </div>
                 }
