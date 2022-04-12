@@ -5,11 +5,11 @@ const useDonationStore = create(
     persist(
     (set, get) => ({
         itemsDonated: [
-            {
-                name: 'T-shirt',
-                weight: 1.7,
-                image: "https://cdn-images.farfetch-contents.com/17/68/34/51/17683451_37032163_1000.jpg"
-            }
+            // {
+            //     name: 'T-shirt',
+            //     weight: 1.7,
+            //     image: "https://cdn-images.farfetch-contents.com/17/68/34/51/17683451_37032163_1000.jpg"
+            // }
         ],
         pastDonations: [
             {
