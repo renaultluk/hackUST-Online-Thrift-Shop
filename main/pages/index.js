@@ -17,7 +17,7 @@ export default function Home() {
           <span className={styles.subtitle}> Your easy donating service</span>
           <div className={styles.buttonsDiv}>
             <a href="/login" className={styles.signupButton}>Join Now</a>
-            <a href="/donate" className={styles.signupButton}>Donate</a>
+            <a href="/donation" className={styles.signupButton}>Donate</a>
           </div>
         </div>
 
