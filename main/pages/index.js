@@ -12,58 +12,44 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="/successful">Next.js!</a>
-        </h1>
+        <div className={styles.hero}>
+          Welcome to <span className={styles.companyTitle}>thriftee</span>
+          <span className={styles.subtitle}> Your easy donating service</span>
+          <div className={styles.buttonsDiv}>
+            <a href="/login" className={styles.signupButton}>Join Now</a>
+            <a href="/donate" className={styles.signupButton}>Donate</a>
+          </div>
+        </div>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <div className={styles.divider}></div>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <div className={styles.shopCategories}>
+          <h2 className={styles.categoryTitle}>Shop Categories</h2>
+          <div className={styles.categoriesDiv}>
+            <a href="/market?category=men" className={styles.categoryDiv}>
+              <div className={styles.categoryImageDiv}> 
+                <img className={styles.categoryImage} src='https://cdn.shopify.com/s/files/1/0561/1238/2135/products/6-1623310995717_460x.jpg?v=1626426772' />
+              </div>
+              <p className={styles.categoryName}>Men</p>
+            </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+            <a href="/market?category=women" className={styles.categoryDiv}>
+              <div className={styles.categoryImageDiv}>
+                <img className={styles.categoryImage} src='https://bigmapapparel.com/wp-content/uploads/2020/08/HTB1L54PX6b.heNjSZFAq6AhKXXad.jpg' />
+              </div>
+              <p className={styles.categoryName}>Women</p>
+            </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+            <a href="/market?category=kids" className={styles.categoryDiv}>
+              <div className={styles.categoryImageDiv}>
+                <img className={styles.categoryImage} src='https://5.imimg.com/data5/SELLER/Default/2020/9/KK/WE/FQ/37262215/25-1-500x500.PNG' />
+              </div>
+              <p className={styles.categoryName}>Kids</p>
+            </a>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          </div>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }

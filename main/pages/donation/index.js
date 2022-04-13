@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -28,6 +28,12 @@ const Donation = () => {
     //         partialVoucher: 12
     //     }
     // );
+
+    useEffect(() => {
+        if (!loadingUser && !currentUser){
+            router.push('/login')        
+        }
+      }, [currentUser])
 
     const handleConfirm = () => {
         const donationId = generateOrderID();
@@ -65,7 +71,7 @@ const Donation = () => {
             </Head>
             <FullHeightPage>
                 <Container>
-                    <h1>Clothes Donation</h1>
+                    <h1 className={styles.titleHeader}>Clothes Donation</h1>
                     <Container>
                         {donationItems.map((item, index) => (
                             <Row key={index} className={styles.productRow}>
@@ -76,12 +82,13 @@ const Donation = () => {
                                     className={styles.productImage}
                                 />
                                 <Col>
-                                    <h3>{item.name}</h3>
+                                    <h3 className={styles.productName}>{item.name}</h3>
                                 </Col>
                                 <Col xs lg={2} className="d-flex justify-content-end align-items-center">
-                                    <span>Weight: {item.weight}kg</span>
+                                    <span className={styles.pricetag}>Weight: {item.weight}kg</span>
                                     <Button
                                         variant="link"
+                                        
                                         onClick={() => {
                                             router.push({
                                                 pathname: '/donation/item',
@@ -95,6 +102,7 @@ const Donation = () => {
                                     </Button>
                                     <Button
                                         variant="danger"
+                                        className={styles.removeButton}
                                         onClick={() => {
                                                 donationStore.removeFromDonation(item)    
                                             }
@@ -113,9 +121,9 @@ const Donation = () => {
                     </Container>
                     <Row className="mt-2">
                         <Col>
-                            <h3>Total Items: {donationItems.length}</h3>
-                            <h4>Total Weight: {totalWeight}kg</h4>
-                            <h4>
+                            <h3  className={styles.priceTotal}>Total Items: {donationItems.length}</h3>
+                            <h4  className={styles.priceTotal}>Total Weight: {totalWeight}kg</h4>
+                            <h4  className={styles.priceTotal}>
                                 Estimated Rewards: &nbsp;
                                 {/* {rewards.numberOfFullVouchers}
                                 &nbsp;Full Vouchers & 1 &nbsp;
@@ -125,7 +133,7 @@ const Donation = () => {
                             </h4>
                         </Col>
                         <Col xs lg={2}  className="d-flex justify-content-end">
-                            <Button onClick={handleConfirm}>
+                            <Button onClick={handleConfirm} className={styles.checkout}>
                                 Confirm
                             </Button>
                         </Col>
