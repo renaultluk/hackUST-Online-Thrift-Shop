@@ -26,18 +26,20 @@ export default function Home() {
         <div className={styles.shopCategories}>
           <h2 className={styles.categoryTitle}>Shop Categories</h2>
           <div className={styles.categoriesDiv}>
+            
+          <a href="/market?category=women" className={styles.categoryDiv}>
+              <div className={styles.categoryImageDiv}>
+                <img className={styles.categoryImage} src='https://bigmapapparel.com/wp-content/uploads/2020/08/HTB1L54PX6b.heNjSZFAq6AhKXXad.jpg' />
+              </div>
+              <p className={styles.categoryName}>Women</p>
+            </a>
+
+
             <a href="/market?category=men" className={styles.categoryDiv}>
               <div className={styles.categoryImageDiv}> 
                 <img className={styles.categoryImage} src='https://cdn.shopify.com/s/files/1/0561/1238/2135/products/6-1623310995717_460x.jpg?v=1626426772' />
               </div>
               <p className={styles.categoryName}>Men</p>
-            </a>
-
-            <a href="/market?category=women" className={styles.categoryDiv}>
-              <div className={styles.categoryImageDiv}>
-                <img className={styles.categoryImage} src='https://bigmapapparel.com/wp-content/uploads/2020/08/HTB1L54PX6b.heNjSZFAq6AhKXXad.jpg' />
-              </div>
-              <p className={styles.categoryName}>Women</p>
             </a>
 
             <a href="/market?category=kids" className={styles.categoryDiv}>
