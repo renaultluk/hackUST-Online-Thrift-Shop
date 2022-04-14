@@ -21,12 +21,13 @@ As a customer, you can:
 The marketplace screen contains a list of product cards, each with information such as an image of the item, brand and name of the item, the price and the estimated water consumption used to produce the item.
 2. Inspect details of a product by clicking onto a product card
 3. Add a product to your cart by clicking on the "Add to Cart" button
-4. Check out your cart by clicking on the "Checkout" button
+4. Choose your means of delivering the product using the dropdown in the cart, and seeing the CO2 emissions of each method. By choosing to delay on the delivery and choosing less wasting delivery methods, the delivery process becomes more environmentally friendly through easier planning for bulk delivery on delivery companies' part.
+5. Check out your cart by clicking on the "Checkout" button
 
 #### Donator
 As a donator, you can:
 1. Add a product to the marketplace by clicking on the "Add Donation Item" button
-2. Input details of your donation item, including name, weight, and images of the item
+2. Input details of your donation item, including name, weight, and images of the item. Once the items are inputted, an estimated amount of rewards given to you will be calculated. The heavier the items, the more you are saving on the emission and waste that goes into producing and distributing the goods, as a result you get a larger sum of rewards.
 3. Submit your donation item by clicking on the "Confirm" button
 4. Download an auto-generated shipping label with the information of your donation, including user ID, items donated, estimated rewards, etc. An QR code is also generated on the shipping label to ease the process of processing the donation.
 
