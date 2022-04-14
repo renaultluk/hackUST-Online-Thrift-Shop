@@ -14,11 +14,17 @@ import FullHeightPage from "../components/FullHeightPage";
 import styles from "../styles/shopping-cart.module.css";
 import generateOrderId from "../utils/utils";
 
+import { truckingEmissions, WAREHOUSE_LOCATION, DISTRICT_COORDS, TRUCKING_OPTIONS, expectedDeliveryDate } from '../utils/CalculationUtils'
+
 const ShoppingCart = () => {
     const shopStore = useShoppingStore();
     const { loadingUser, currentUser } = useAuth();
     const router = useRouter();
 
+    const [emissions, setEmissions ] = useState();
+    const [days, setDays ] = useState();
+    const [districtSelected, setDistrictSelected ] = useState(false);
+    const [truckingSelected, setTruckingSelected ] = useState(false);
     const [cart, setCart] = useState([]);
     
     const fetchData = async () => {
@@ -39,6 +45,14 @@ const ShoppingCart = () => {
         })
     }
 
+    const selectDistrict = (e) => {
+        setDistrictSelected(e.target.value);
+    }
+
+    const selectTrucking = (e) => {
+        setTruckingSelected(e.target.value);
+    }
+
     const handleCheckOutButton = () => {
         /**
          * For each checkout, we create an orderId linking a list of productId with embedded info and userId
@@ -50,6 +64,11 @@ const ShoppingCart = () => {
             userId : currentUser.uid,
             totalSpending: cart.reduce((acc, item) => acc + item.price, 0),
             productsBought : cart,
+            emissions: emissions,
+            shippingDistrict: districtSelected,
+            deliveryMode: truckingSelected,
+            estimatedDays: days,
+            estimatedDelivery: expectedDeliveryDate(days)
         }
 
         const orderRef = doc(firestore, 'orders', orderId);
@@ -65,14 +84,29 @@ const ShoppingCart = () => {
     }, []);
 
     useEffect( () => {
-        console.log(shopStore.shoppingCart)
-        console.log('cart' , cart)
-    }, [cart])
+        let total = cart.reduce((acc, item) => acc + item.price, 0);
+
+        if(districtSelected == 'Select District' || !districtSelected || truckingSelected == 'Select Delivery' || !truckingSelected){
+            setEmissions(null);
+            setDays(null);
+        } else {
+            const calcuations = truckingEmissions(truckingSelected, WAREHOUSE_LOCATION, DISTRICT_COORDS[districtSelected], total)
+
+            const emissionCalculation = calcuations[0];
+            const daysCalculation = calcuations[1];
+
+            console.log(emissionCalculation)
+
+            setEmissions(emissionCalculation);
+            setDays(daysCalculation);
+        }
+
+    }, [districtSelected, cart, truckingSelected])
 
 
 
     let total = cart.reduce((acc, item) => acc + item.price, 0);
-
+    
 
     return (
 
@@ -115,17 +149,49 @@ const ShoppingCart = () => {
                         })
                         }
                 </Container>
-                <Row className="mt-2">
-                    <Col>
-                        <h3 className={styles.priceTotal}>Total: $HK{total}</h3>
-                    </Col>
-                    <Col xs lg={2}  className="d-flex justify-content-end">
+                <div className={styles.purchaseSummary}>
+                    <div className={styles.selections}>
+                        <label for="district" className={styles.districtDropdownLabel}>Shipping District</label>
+                        <select id="district" name="district" onChange={selectDistrict} className={styles.districtDropdown}>
+                            {
+                                Object.keys(DISTRICT_COORDS).map(district => {
+                                    return <option key={district} value={district}>{district}</option>
+                                })
+                            }
+                        </select>
+
+                        <label for="trucking" className={styles.districtDropdownLabel}>Delivery Mode</label>
+                        <select id="trucking" name="trucking" onChange={selectTrucking} className={styles.districtDropdown}>
+                            {
+                                Object.keys(TRUCKING_OPTIONS).map(trucking => {
+                                    return <option key={trucking} value={trucking}>{trucking}</option>
+                                })
+                            }
+                        </select>
+
+                    </div>
+
+                    <div className={styles.info_and_checkout}>
+                        <div className={styles.info_row}>
+                            <h3 className={styles.priceTotal}>Est. Delivery Days: </h3>
+                            <h3 className={styles.priceTotalRight}>{ days ? `${days}~ days` : ''}</h3>
+                        </div>
+                        <div className={styles.info_row}>
+                        <h3 className={styles.priceTotal}>Est. CO2 Emissions: </h3>
+                            <h3 className={styles.priceTotalRight}>{ emissions ? `${emissions}g` : ''}</h3>
+                        </div>
+                        <div className={styles.info_row}>
+                            <h3 className={styles.priceTotal}>Total:</h3>
+                            <h3 className={styles.priceTotalRight}>{ total ? `HK$${total}` : ''}</h3>
+                        </div>
+                       
                         {  
                         !loadingUser&&currentUser&&
                             <Button
                                 variant="success"
                                 className={styles.checkout}
                                 onClick={handleCheckOutButton}
+                                disabled={districtSelected == 'Select District'}
                             >Checkout</Button>
                         }
 
@@ -137,9 +203,9 @@ const ShoppingCart = () => {
                                 variant="success"
                             >Login/Signup</Button>
                         }
-                    </Col>
+                    </div>
 
-                </Row>
+                </div>
             </Container>
         </FullHeightPage>
         </>

@@ -13,12 +13,14 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.hero}>
-          Welcome to <span className={styles.companyTitle}>thriftee</span>
-          <span className={styles.subtitle}> Your easy donating service</span>
-          <div className={styles.buttonsDiv}>
+          <img className={styles.backgroundImage} src='/landing_page.jpg' />
+          <h2 className={styles.welcome}>Welcome to</h2>
+          <img src='/thriftee_logo_flip' className={styles.companyTitle} />
+          <span className={styles.subtitle}>Explore second-hand clothing.</span>
+          {/* <div className={styles.buttonsDiv}>
             <a href="/login" className={styles.signupButton}>Join Now</a>
             <a href="/donation" className={styles.signupButton}>Donate</a>
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.divider}></div>
