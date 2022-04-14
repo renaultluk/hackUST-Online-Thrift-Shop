@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 10,
-    backgroundColor: '#000000',
+    backgroundColor: 'rgba(101,193,140,255)',
     color: 'white',
   },
   mainContainer: {
