@@ -27,7 +27,7 @@ The marketplace screen contains a list of product cards, each with information s
 #### Donator
 As a donator, you can:
 1. Add a product to the marketplace by clicking on the "Add Donation Item" button
-2. Input details of your donation item, including name, weight, and images of the item. Once the items are inputted, an estimated amount of rewards given to you will be calculated. The heavier the items, the more you are saving on the emission and waste that goes into producing and distributing the goods, as a result you get a larger sum of rewards.
+2. Input details of your donation item, including name, weight, and images of the item. Once the items are inputted, an estimated amount of rewards given to you will be calculated. The heavier the items, the more you are saving on the emission and waste that goes into producing and distributing the goods, as a result you get a larger sum of rewards. Right now, you get 50 Thriftee Dollars per kg of items donated, which can translate to different vouchers.
 3. Submit your donation item by clicking on the "Confirm" button
 4. Download an auto-generated shipping label with the information of your donation, including user ID, items donated, estimated rewards, etc. An QR code is also generated on the shipping label to ease the process of processing the donation.
 
@@ -39,7 +39,7 @@ Before you run this website, please make sure you have the following:
 
 To run this website,
 1. clone or download the repository
-2. cd to this directory
+2. cd to the "main" directory
 3. run `npm install`
 4. run `npm run dev`
 5. open http://localhost:3000/ in your browser to view the website
