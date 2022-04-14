@@ -180,7 +180,9 @@ const UserProfile = () => {
                                     <p className={styles.productBrand}>Order #{order.orderId}</p>
                                     <p className={styles.productName}>Total Spending: HK${order.totalSpending??0}</p>
                                     <p className={styles.productName}>Order Date: {getDateString(order.orderDate.seconds)}</p>
-                                    <p className={styles.productName}>Delivery Date: {getDateString(order.orderDate.seconds + 1000000)}</p>
+                                    <p className={styles.productName}>Service: {order.deliveryMode ??'Standard'}</p>
+                                    <p className={styles.productName}>Delivery Date: {order.estimatedDelivery ?? getDateString(order.orderDate.seconds + 1000000)}</p>
+                                    <p className={styles.productName}>Emissions: {order.emissions ?? 1200}g</p>
                                 </div>
                                 
                                 )

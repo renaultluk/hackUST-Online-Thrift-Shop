@@ -37,5 +37,50 @@
 
 
 .priceTotal{
-    font-size: 1.25rem;
+    font-size: 1rem;
+    width: 50%;
+}
+.priceTotalRight{
+    font-size: 1rem;
+    width: 50%;
+    text-align: right;
+}
+
+.selections{
+    display:flex;
+    flex-direction:column;
+    width: 50%;
+    padding-right: 25%;
+    
+}
+
+.info_and_checkout{
+    display:flex;
+    flex-direction:column;
+    width: 50%;
+    padding-left: 25%;
+    justify-self: flex-end;
+}
+
+.purchaseSummary{
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+}
+
+.info_row{
+    display:flex;
+    flex-direction:row;
+    height: 100%;
+}
+
+.districtDropdown{
+    margin-bottom:1rem;
+    padding: 0.25rem;
+    border: 2px solid rgba(101,193,140,1);
+    border-radius: 5px;
+}
+
+.districtDropdownLabel{
+    font-weight: 500;
 }
