@@ -1,6 +1,6 @@
-![thriftee logo](./main/public/logo.png)
+![thriftee logo](./main/public/Thriftee%20Logo%20Green.jpeg)
 # Thriftee
-Your easy donation service
+Explore second-hand clothing.
 
 ---
 ## Introduction
