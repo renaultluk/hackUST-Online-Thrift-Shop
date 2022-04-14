@@ -50,6 +50,7 @@ const UserProfile = () => {
 
         querySnapshot.forEach(doc=>{
             fetchedOrders.push(doc.data());
+            console.log(doc.data())
         })
         setOrdersData(fetchedOrders);
     }
@@ -65,6 +66,7 @@ const UserProfile = () => {
             fetchedDonations.push(doc.data());
         })
         setDonationsData(fetchedDonations);
+
     }
 
     useEffect(() => {
@@ -181,7 +183,7 @@ const UserProfile = () => {
                                     <p className={styles.productName}>Total Spending: HK${order.totalSpending??0}</p>
                                     <p className={styles.productName}>Order Date: {getDateString(order.orderDate.seconds)}</p>
                                     <p className={styles.productName}>Service: {order.deliveryMode ??'Standard'}</p>
-                                    <p className={styles.productName}>Delivery Date: {order.estimatedDelivery ?? getDateString(order.orderDate.seconds + 1000000)}</p>
+                                    <p className={styles.productName}>Delivery Date: {order.estimatedDelivery ? getDateString(order.estimatedDelivery.seconds) : getDateString(order.orderDate.seconds + 1000000)}</p>
                                     <p className={styles.productName}>Emissions: {order.emissions ?? 1200}g</p>
                                 </div>
                                 
