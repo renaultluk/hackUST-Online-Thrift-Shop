@@ -156,7 +156,7 @@ const UserProfile = () => {
                                     return (
                                     <tr key={`donation-${i.toString()}`} className={styles.donationRow}>
                                         <td className={styles.donationRowLabels}>{getDateString(donation.donationDate?.seconds)}</td>
-                                        <td className={styles.donationRowLabels}>{Number(donation.totalWeight)}kg</td>
+                                        <td className={styles.donationRowLabels}>{Number(donation.totalWeight)}L</td>
                                         <td className={styles.donationRowLabels}>{donation.estimatedRewards}TD</td>
                                         <td className={styles.donationRowLabels}>
                                             <PDFDownloadLink document={<IndividualShippingLabel currentDonation={donation} />} fileName={`thriftee-label-${donation.donationId}.pdf`}>

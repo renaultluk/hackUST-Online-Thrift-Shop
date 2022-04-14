@@ -100,7 +100,7 @@ const ProductCard = (item) => {
                 <div className={styles.productLeft}>
                     <p className={styles.productBrand}>{item.item.brand}</p>
                     <p className={styles.productName}>{item.item.name}</p>
-                    <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> {`${item.item.ecostat??0}kg`}</p>
+                    <p className={styles.productEco}><IoWaterOutline style={{color:'blue'}} /> {`${item.item.ecostat??0}L`}</p>
                 </div>
                 <div className={styles.productRight}>
                     <p className={styles.productOgPrice}>{`HK$${item.item.originalPrice??0}`}</p>
